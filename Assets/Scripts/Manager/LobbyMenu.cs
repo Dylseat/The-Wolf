@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
 
-public class Menu : NetworkDiscovery
+public class LobbyMenu : NetworkDiscovery
 {
     NetworkManager networkManager;
     string ipAdress = null;

@@ -15,11 +15,11 @@ public class Lobby : MonoBehaviour
     Text inputFieldText;
     [SerializeField]
     Text nameOfServer;
-    Menu menu;
+    LobbyMenu menu;
 
     private void Start()
     {
-        menu = gameObject.GetComponent<Menu>();
+        menu = gameObject.GetComponent<LobbyMenu>();
     }
 
     public string GetUserServName()

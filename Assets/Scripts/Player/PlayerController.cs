@@ -8,7 +8,7 @@ public class PlayerController : NetworkBehaviour
     [SerializeField]
     float speed;
     [SerializeField]
-    float rotateSpeed;
+    float SpeedRotation;
     [SerializeField]
     float gravity;
     float horizontal;
@@ -52,8 +52,8 @@ public class PlayerController : NetworkBehaviour
             vertical = Input.GetAxis("Vertical");
 
             //mouvement de la caméra avec la souris
-            transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0) * Time.deltaTime * rotateSpeed);
-            cameras.transform.Rotate(new Vector3(-Input.GetAxis("Mouse Y"), 0, 0) * Time.deltaTime * rotateSpeed);
+            transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0) * Time.deltaTime * SpeedRotation);
+            cameras.transform.Rotate(new Vector3(-Input.GetAxis("Mouse Y"), 0, 0) * Time.deltaTime * SpeedRotation);
 
             moveHorizontal = transform.right * speed * horizontal;
             moveForward = transform.forward * speed * vertical;
