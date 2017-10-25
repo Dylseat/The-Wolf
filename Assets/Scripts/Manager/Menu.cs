@@ -54,5 +54,15 @@ public class Menu : NetworkDiscovery
         Application.Quit();
     }
 
-
+    public void Disconnect()
+    {
+        if (isServer)
+        {
+            networkManager.StopHost();
+        }
+        else
+        {
+            networkManager.StopClient();
+        }
+    }
 }

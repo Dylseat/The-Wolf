@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Lobby : MonoBehaviour
 {
     [SerializeField]
-    GameObject start;
+    GameObject Begin;
     [SerializeField]
     GameObject host;
     [SerializeField]
@@ -34,13 +34,13 @@ public class Lobby : MonoBehaviour
 
     public void CreateGame()
     {
-        start.SetActive(false);
+        Begin.SetActive(false);
         host.SetActive(true);
     }
 
     public void JoinGame()
     {
-        start.SetActive(false);
+        Begin.SetActive(false);
         client.SetActive(true);
         menu.JoinServer();
     }
@@ -49,6 +49,6 @@ public class Lobby : MonoBehaviour
     {
         client.SetActive(false);
         host.SetActive(false);
-        start.SetActive(true);
+        Begin.SetActive(true);
     }
 }
