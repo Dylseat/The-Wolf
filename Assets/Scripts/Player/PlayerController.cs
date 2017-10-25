@@ -43,34 +43,36 @@ public class PlayerController : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!isLocalPlayer)
+        if (!isLocalPlayer)
         {
             return;
         }
 
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
+            horizontal = Input.GetAxis("Horizontal");
+            vertical = Input.GetAxis("Vertical");
 
-        //mouvement de la caméra avec la souris
-        transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0) * Time.deltaTime * rotateSpeed);
-        cameras.transform.Rotate(new Vector3(-Input.GetAxis("Mouse Y"), 0, 0) * Time.deltaTime * rotateSpeed);
+            //mouvement de la caméra avec la souris
+            transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0) * Time.deltaTime * rotateSpeed);
+            cameras.transform.Rotate(new Vector3(-Input.GetAxis("Mouse Y"), 0, 0) * Time.deltaTime * rotateSpeed);
 
-        moveHorizontal = transform.right * speed * horizontal;
-        moveForward = transform.forward * speed * vertical;
+            moveHorizontal = transform.right * speed * horizontal;
+            moveForward = transform.forward * speed * vertical;
 
-        if (controller.isGrounded == false)
-        {
-            moveDirection.y -= gravity * Time.deltaTime;
-        }
+            if (controller.isGrounded == false)
+            {
+                moveDirection.y -= gravity * Time.deltaTime;
+            }
 
-        controller.Move(moveDirection);
-        controller.SimpleMove(moveHorizontal + moveForward);
+            controller.Move(moveDirection);
+            controller.SimpleMove(moveHorizontal + moveForward);
+      
         
     }
     // change de couleur les joueurs
     public override void OnStartLocalPlayer()
     {
         GetComponent<MeshRenderer>().material.color = Color.red;
+        cameras.gameObject.SetActive(true);
     }
 
     [ServerCallback]
