@@ -59,4 +59,14 @@ public class PlayerController : NetworkBehaviour
     {
         GetComponent<MeshRenderer>().material.color = Color.red;
     }
+
+    [ServerCallback]
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            
+        }
+    }
 }
