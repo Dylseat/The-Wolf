@@ -18,8 +18,8 @@ public class Menu : NetworkDiscovery
     {
         networkManager = GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
         lobby = gameObject.GetComponent<Lobby>();
-
     }
+
 
     public void CreateServeur()
     {
@@ -49,11 +49,6 @@ public class Menu : NetworkDiscovery
         networkManager.StartClient();
     }
 
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
-
     public void Disconnect()
     {
         if (isServer)
@@ -65,4 +60,10 @@ public class Menu : NetworkDiscovery
             networkManager.StopClient();
         }
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
 }
