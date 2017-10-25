@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class Lobby : MonoBehaviour
 {
     [SerializeField]
-    GameObject BaseCanvas;
+    GameObject start;
     [SerializeField]
-    GameObject hostCanvas;
+    GameObject host;
     [SerializeField]
-    GameObject clientCanvas;
+    GameObject client;
     [SerializeField]
     Text inputFieldText;
     [SerializeField]
@@ -34,21 +34,21 @@ public class Lobby : MonoBehaviour
 
     public void CreateGame()
     {
-        BaseCanvas.SetActive(false);
-        hostCanvas.SetActive(true);
+        start.SetActive(false);
+        host.SetActive(true);
     }
 
     public void JoinGame()
     {
-        BaseCanvas.SetActive(false);
-        clientCanvas.SetActive(true);
+        start.SetActive(false);
+        client.SetActive(true);
         menu.JoinServer();
     }
 
     public void Return()
     {
-        clientCanvas.SetActive(false);
-        hostCanvas.SetActive(false);
-        BaseCanvas.SetActive(true);
+        client.SetActive(false);
+        host.SetActive(false);
+        start.SetActive(true);
     }
 }

@@ -19,7 +19,20 @@ public class PlayerController : NetworkBehaviour
     Vector3 moveForward;
     Vector3 moveDirection;
     CharacterController controller;
+    [SerializeField] [SyncVar] int playerID = -1;
 
+    public int PlayerID
+    {
+        get
+        {
+            return playerID;
+        }
+
+        set
+        {
+            playerID = value;
+        }
+    }
 
     // Use this for initialization
     void Start()
