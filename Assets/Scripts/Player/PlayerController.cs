@@ -68,7 +68,7 @@ public class PlayerController : NetworkBehaviour
       
         
     }
-    // change de couleur les joueurs
+    // change de couleur les joueurs et active la caméra
     public override void OnStartLocalPlayer()
     {
         GetComponent<MeshRenderer>().material.color = Color.red;

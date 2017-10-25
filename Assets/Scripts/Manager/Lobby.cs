@@ -22,12 +22,12 @@ public class Lobby : MonoBehaviour
         menu = gameObject.GetComponent<LobbyMenu>();
     }
 
-    public string GetUserServName()
+    public string GetUserServerName()
     {
         return inputFieldText.text;
     }
 
-    public void SetServeName(string newName)
+    public void SetServerName(string newName)
     {
         nameOfServer.text = newName;
     }

@@ -8,11 +8,9 @@ using UnityEngine.Networking;
 public class LobbyMenu : NetworkDiscovery
 {
     NetworkManager networkManager;
-    string ipAdress = null;
     Lobby lobby;
+    string ipAdress = null;
     string serverName;
-
-
 
     private void Start()
     {
@@ -24,7 +22,7 @@ public class LobbyMenu : NetworkDiscovery
     public void CreateServeur()
     {
         Initialize();
-        serverName = lobby.GetUserServName();
+        serverName = lobby.GetUserServerName();
         broadcastData = serverName;
         StartAsServer();
         networkManager.StartHost();
@@ -34,19 +32,6 @@ public class LobbyMenu : NetworkDiscovery
     {
         Initialize();
         StartAsClient();
-    }
-
-    public override void OnReceivedBroadcast(string fromAddress, string data)
-    {
-        base.OnReceivedBroadcast(fromAddress, data);
-        ipAdress = fromAddress;
-        lobby.SetServeName(data);
-    }
-
-    public void Connect()
-    {
-        networkManager.networkAddress = ipAdress;
-        networkManager.StartClient();
     }
 
     public void Disconnect()
@@ -59,6 +44,19 @@ public class LobbyMenu : NetworkDiscovery
         {
             networkManager.StopClient();
         }
+    }
+
+    public override void OnReceivedBroadcast(string fromAddress, string data)
+    {
+        base.OnReceivedBroadcast(fromAddress, data);
+        ipAdress = fromAddress;
+        lobby.SetServerName(data);
+    }
+
+    public void Connect()
+    {
+        networkManager.networkAddress = ipAdress;
+        networkManager.StartClient();
     }
 
     public void QuitGame()
